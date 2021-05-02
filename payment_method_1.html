@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Payment Gateway</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <h2>Enter Card Details</h2>
+    <hr> <br>
+    <img src="./images/payment.PNG" alt="image not available">
+    <br>
+    <form action="result.html" name="form" onsubmit="required()">
+        <label for="Card no">Card number</label>
+        <input type="text" name="num" placeholder="Card no">
+        <br>
+        <label for="name">Card holder's name</label>
+        <input type="text" name="nm" placeholder="Name">
+        <br>
+        <label for="expiry date">Expires on</label>
+        <input type="date" name="date" value="" >
+        <label for="CVV">CVV</label>
+        <input type="password" name="pass" placeholder="Password">
+        <br>
+        <br>
+        <button class="btn success" type="submit">Make Payment</button>
+    </form>
+    <script>
+    function required(){
+        var emp=document.form["form"]["num"];
+        var emp2=document.form["form"]["nm"];
+        var emp3=document.form["form"]["date"];
+        var emp4=document.form["form"]["pass"];
+        if (emp == "" || emp2=="" || emp3=="" || emp4=""){
+            alert("Please fill up the required  input boxes");
+            return false;
+        }
+        return true;
+    }
+    
+    </script>
+
+</body>
+</html>

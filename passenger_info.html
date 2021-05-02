@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Details</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial;
+          font-size: 17px;
+        }
+        
+        .container {
+          position: relative;
+          max-width: 1600px;
+          margin: 0 auto;
+        }
+        
+        .container img {vertical-align: middle;}
+        
+        .container .content {
+          position: absolute;
+          bottom: 0;
+          background: rgb(0, 0, 0); /* Fallback color */
+          background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+          color: #f1f1f1;
+          width: 100%;
+          padding: 20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./images/killian-pham-CWP8X2U2lu8-unsplash.jpg" alt="Notebook" style="width:100%;" height="500">
+        <div class="content">
+          <h1>Passenger Booking</h1>
+          <p>Here You Can Enter The Passenger Details And Also Proceed To Payment</p>
+        </div>
+      </div>
+      <br>
+      <h2>Enter Passenger Details</h2>
+    <button id="addPassenger" class="btn success">Add Passenger</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="removePassenger" class="btn success">Remove Passenger</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var i=2;
+            $("#addPassenger").click(function(){
+                if (i<=6){
+                    var p_det="<tr id=passengerDetails"+i+"> <th> <p>Passenger "+i+"</p> </th> <th> <select name=\"Title"+i+"\" id=\"\"> <option value=\"Mr.\">Mr.</option> <option value=\"Mrs.\">Mrs.</option> <option value=\"Ms.\">Ms.</option> </select> </th> <th> <input type=\"text\" name=\"First"+i+"\"> </th> <th> <input type=\"text\" name=\"Last"+i+"\"> </th> <th> <select name=\"Gender"+i+"\" id=\"\"> <option value=\"Male\">Male</option> <option value=\"Female\">Female</option> <option value=\"Others\">Others</option> </select> </th> <th> <select name=\"Nationality"+i+"\" id=\"\"> <option value=\"Indian\">Indian</option> </select> </th> <th> <input type=\"number\" name=\"Age"+i+"\" id=\"\"> </th> </tr> ";
+                    var ids="#passengerDetails"+(i-1);
+                    $(ids).after(p_det);
+                }
+
+                else {
+                    alert("You can enter 6 passengers at a time");
+                    i-=1;
+                }
+                i+=1;
+                
+            });
+
+            $("#removePassenger").click(function(){
+                if (i==2)
+                    alert("You cannot remove any more passenger");
+                
+                else {
+                    var ids="#passengerDetails"+(i-1);
+                    $(ids).remove();
+                }
+                i-=1;
+            });
+        });
+    </script>
+    <hr> <br>
+    <form action="DataInsertionPassengerDetail.php" method="post">
+    
+    <table>
+        
+        <tr>
+            <th>Sl.no</th>
+            <th>Title</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Gender</th>
+            <th>Nationality</th>
+            <th>Age</th>
+        </tr>
+
+    <tr id="passengerDetails1">
+        <th>
+            <p>Passenger 1</p>
+        </th>
+        <th>
+            <select name="Title1" id="">
+           <option value="Mr.">Mr.</option> 
+           <option value="Mrs.">Mrs.</option> 
+           <option value="Ms.">Ms.</option> 
+        </select>
+        </th>
+        <th>
+            <input type="text" name="First1">
+        </th>
+        <th>
+            <input type="text" name="Last1">
+        </th>
+        <th>
+            <select name="Gender1" id="">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+        </th>
+        <th>
+            <select name="Nationality1" id="">
+                <option value="Indian">Indian</option>
+            </select>
+        </th>
+        <th>
+           <input type="number" name="Age1" id="">
+        </th>
+    </tr>
+    </table>
+
+    <br>
+    <br>
+    <br> 
+    <button  type="submit" class="btn success">Confirm Booking</button>
+    </form>
+    <br> <br> <br>
+    <h2>Payment Methods</h2>
+    <hr>
+    <br>
+    <p>1.Pay via Debit/Credit Card</p>
+    <button class="btn blue"><a href="#">Proceed To Payment</a></button> <br><br>
+    <p>2.Pay via UPI/Google Pay/Paytm</p>
+    <button class="btn blue"><a href="#">Proceed To Payment</a></button>
+    <br>
+</body>
+</html>

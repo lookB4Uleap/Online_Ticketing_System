@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Options</title>
+</head>
+<body>
+	<br />
+	<br />
+	<br />
+	<br />
+	<form action="" method="post">
+		<textarea name="train_no" id="op1_no"></textarea>
+		&emsp;
+		<button action="submit" id="op1"></button>
+	</form>
+	<form action="" method="post">
+		<textarea name="train_no" id="op2_no"></textarea>
+		&emsp;
+		<button action="submit" id="op2"></button>
+	</form>
+
+	<script type="text/javascript">
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+	    myObj = JSON.parse(this.responseText);
+	    document.getElementById("op1").innerHTML = $jar_nm[0] ;
+	    document.getElementById("op1_no").innerHTML = $jar_no[0] ;
+	    if ($jar_nm.length>0){
+	    document.getElementById("op2").innerHTML = $jar_nm[1] ;
+	    document.getElementById("op2_no").innerHTML = $jar_no[1] ;	
+	    }
+	    
+	    
+	    
+	  }
+	};
+	xmlhttp.open("GET", "check_availability.php", true);
+	xmlhttp.send();
+	</script>
+
+</body>
+</html>

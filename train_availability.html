@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Train availabilty</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial;
+          font-size: 17px;
+        }
+        
+        .container {
+          position: relative;
+          max-width: 1600px;
+          margin: 0 auto;
+        }
+        
+        .container img {vertical-align: middle;}
+        
+        .container .content {
+          position: absolute;
+          bottom: 0;
+          background: rgb(0, 0, 0); /* Fallback color */
+          background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+          color: #f1f1f1;
+          width: 100%;
+          padding: 20px;
+        }
+        </style>
+</head>
+<body onload="checkForCookie()">
+    <div class="container">
+        <img src="./images/mw960367054-GkcDosDfl7A-unsplash.jpg" alt="Notebook" style="width:100%;">
+        <div class="content">
+          <h1>Check For Trains</h1>
+          <p>Here You Can Check For Trains From A Specified Source To A Certain Destination</p>
+        </div>
+      </div>
+      <br> <br>
+      <h2>Check Train availabilty</h2>
+      <hr> <br> 
+      <form action="check_availability.php" method="post">
+      <label for="name">From :</label>
+      <select name="From" id="">
+          <option value="Howrah">Howrah(HWH)</option>
+      </select>
+      <br> <br>
+      <label for="name">To :</label>
+      <select name="To" id="">
+          <option value="Delhi">Delhi(DLH)</option>
+          <option value="Mumbai">Mumbai(BOM)</option>
+          <option value="Chennai">Chennai(CHN)</option>
+          <option value="Patna">Patna(PTN)</option>
+          <option value="Hyderabad">Hyderabad(HDB)</option>
+          <option value="Jaipur">Jaipur(JPR)</option>
+          <option value="Guwahati">Guwahati(GWH)</option>
+      </select>
+      <br> <br>
+      <label for="name">Journey date :</label>
+      <input type="date" />
+      <br><br>
+      <label for="name">No.of passengers :</label>
+      <select name="adults" id="">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+      </select>
+      <br> <br>
+      <label for="name">Class :</label>
+      <select name="class" id="">
+          <option value="AC 3-Tier">AC 3-Tier</option>
+          <option value="AC 2-Tier">AC 2-Tier</option>
+          <option value="AC 1-Tier">AC 1-Tier</option>
+          <option value="Executive">Executive</option>
+          <option value="Sleeper">Sleeper</option>
+          <option value="Chair-Car">Chair-Car</option>
+          <option value="General">General</option>
+      </select>
+      <br>
+      <br> <br>
+      <button type="submit" class="btn success">Check availabilty</button>
+      </form>
+      <br>
+      <br>
+          <p style="color:red;font-size:large">Please note : Booking for a maximum of 6 passengers can be done at a time </p>
+
+      <script>
+          function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {x
+              return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
+
+        function checkForCookie() {
+          var user=getCookie("User");
+          if (user=="")
+            alert("Please Login");
+          else 
+            alert("Welcome");
+        }
+        
+      </script>
+
+</body>
+</html>

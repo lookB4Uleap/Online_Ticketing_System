@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ticketing System-Indian Raiways</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+        .mySlides {display: none}
+        img {vertical-align: middle;}
+        
+        /* Slideshow container */
+        .slideshow-container {
+          max-width: 2000px;
+          position: relative;
+          margin: auto;
+        }
+        
+        /* Next & previous buttons */
+        .prev, .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+        }
+        
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+        
+        /* Caption text */
+        .text {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+        
+        /* Fading animation */
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+          .prev, .next,.text {font-size: 11px}
+        }
+        </style>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <a href="about.html"><i class="fa fa-user" ></i> About</a>
+        <div class="dropdown">
+          <button class="dropbtn"><i class="fa fa-train" aria-hidden="true"></i> Trains
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="train_availability.html" target="_blank">Check Train Availabilty</a>
+            <a href="passenger_info.html" target="_blank">Book Tickets</a>
+            <a href="cancel_ticket.html" target="_blank">Cancel Tickets</a>
+            <a href="#">PNR Enquiry</a>
+          </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa fa-bed" aria-hidden="true"></i> Stays
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="https://www.oyorooms.com/" target="_blank">Hotels</a>
+              <a href="stays.html"  target="_blank">Waiting Rooms</a>
+              <a href="stays.html"  target="_blank">Lounge</a>
+            </div>
+          </div>
+          <a href="Signin.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Login/Sign up</a>
+          
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+      </div>
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="./images/trains1.jpg" style="width:100%" height="500">
+          <div class="text">Welcome To Indian Railways - Safety,Security,Puntuality</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="./images/wallpaperflare.com_wallpaper.jpg" style="width:100%" height="500">
+          <div class="text">We serve to ensure the comfort of our passengers</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="./images/trains2.jpg" style="width:100%" height="500">
+          <div class="text">Now booking tickets simplified through our online portal</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+ <script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 6000); // Change image every 6 seconds
+}
+</script>
+    <!-- MAIN (Center website) -->
+<div class="main">
+
+  <center><h2>Holidays</h2></center>
+  <hr>
+  
+  <center><h2>Try our luxurious tour packages with Heritage Trains - The Pride Of India</h2></center>
+  
+  
+  <!-- Portfolio Gallery Grid -->
+  <div class="row">
+    <div class="column">
+      <div class="content">
+        <img src="./images/heritage1.jpg" alt="Mountains" style="width:100%">
+        <h3>Maharaja Express</h3>
+        <p>Best among all Indian luxury trains, Maharajas’ Express is also one of the 5 most luxurious trains in the world. This half-a-mile long train boasts of professionals prepared to meet the highest quality of hospitality, fully stocked bars, lavish suites, butler services and what not, and is one of the most expensive trains in India!
+        Tourists on board get to experience the richness of the country in the most distinguished way possible. 
+      </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="./images/heritage2.jpg" alt="Lights" style="width:100%">
+        <h3>Royal Rajasthan</h3>
+        <p>Royal Rajasthan on Wheels is one of the most special luxury trains in India and is known for offering supreme quality of comfort and an everlasting traveling experience which a traveler can just imagine until he or she actually gets aboard. Having 14 luxury cabins modeled on erstwhile royal palaces, multi-cuisine restaurants, bars and spa services on board, this train lives up to its name and remains in great demand for luxury train journeys in India.</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="./images/heritage3.jpg" alt="Nature" style="width:100%">
+        <h3>Palace On Wheels</h3>
+        <p>Palace on Wheels’ is another in the list of luxury train ride in India that was refurbished and re-launched in 2009 to promote tourism. Luxurious cabins, exquisite wallpapers, well-stocked bar, gracious hospitality and local culture displayed by artistic use of paintings and handicrafts – it is very much like a palace on wheels that recreates the bygone era of kings and their royal palaces! No wonder why it was voted as 4th best luxurious train in the world.</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="./images/heritage4.jpg" alt="Mountains" style="width:100%">
+        <h3>Deccan Odyssey</h3>
+        <p>Inspired by the traveling style of the kings and rulers during different royal eras of ancient India, Deccan Odyssey is a 5-star hotel on wheels that takes you to some fascinating destinations of India. Royal treatment for passengers, palace-like interiors of the cabins, multi-cuisine restaurants, lounges, a conference car, an onboard spa and other state-of-the-art amenities make it one of the most luxurious trains in India and in the world as well.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="content">
+          <img src="./images/heritage5.jpg" alt="Mountains" style="width:100%">
+          <h3>Golden Chariot</h3>
+          <p>The Golden Chariot is one of the superb luxury trains in India that takes you to some of the most famous tourist places in South India. Launched in 2008, the Golden Chariot is well known for its impeccable hospitality. The train has AC chambers with royal interiors, bars, restaurants serving multi-variety cuisines, mini gym, ayurveda spa and other 5-star facilities.luxury trains</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+        <img src="./images/heritage6.jpg" alt="Lights" style="width:100%">
+          <h3>Royal Orientalk</h3>
+          <p>Embark on a royal journey by the Royal Orient Train and enjoy a delightful experience of traveling to famous tourist destinations onboard one of the best luxury trains in India. Journey by this train is a combination of absolute chivalry and unimaginable opulence.
+
+            The palatial-style comfortable cabins, well-trained hospitality professionals, multi cuisine restaurant with the “Watering Hole” Bar, spacious baths, a library and almost all facilities that come to your mind while imagining yourself in a 5-star hotel – Royal Orient Train has them.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+        <img src="./images/heritage7.jpg" alt="Nature" style="width:100%">
+          <h3>Fairy Queen</h3>
+          <p>Last but not the least, the Fairy Queen Express is one of the oldest trains providing luxury train journeys in India. Powered by the oldest serving steam locomotive built in around 1855, Fairy Queen has its own charm as it rambles through to Alwar in Rajasthan. With a mention in the Guinness Book of World Records and a recipient of National Tourism Award, Fairy Queen easily makes it to the list of most luxurious trains in India.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+        <img src="./images/heritage8.jpg" alt="Mountains" style="width:100%">
+          <h3>Heritage On Wheels</h3>
+          <p>One of the oldest luxury trains in India, the Heritage on Wheels showcases the traditions and culture of Rajasthan that have been passed from one generation to another in the finest manner possible. Adorning interiors that never fails to teleport a traveler to the golden days of the state, the Heritage on Wheels is one of the most expensive trains in India.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+        <img src="./images/heritage9.jpg" alt="Mountains" style="width:100%">
+          <h3>Joy Ride</h3>
+          <p>This narrow gauge railway runs between Shimla and Kalka. This route is famous for the grand view of the hill regions and the villages. Built during the end of 19th century, this train was extensively used by the British rulers of India. In 2007, this railway was in line to be recognized as a heritage site. In 2008, it was introduced into the line of prestigious mountain railways heritage site. Babu Bhalku rail museum has displays and collections explaining the development and history of this rail line.</p>
+        </div>
+      </div>
+  <!-- END GRID -->
+  </div>    
+  <br> 
+  <center><h2>Contact Us</h2></center>
+  <hr>
+<div class="container">
+  <form action="contact.php" method="post">
+    <label for="fname">Your Name</label>
+    <input type="text" id="fname" name="name" placeholder="Your name">
+
+    <label for="lname">Contact no</label>
+    <input type="text" id="lname" name="contactno" placeholder="Your phone no">
+
+    <label for="lname">Email-id</label>
+    <input type="text" id="lname" name="email-id" placeholder="You email-id">
+
+
+    <label for="state">State</label>
+    <select id="state" name="state">
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Bihar">Bihar</option>
+      <option value="Chattisgarh">Chattisgarh</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Telangana">Telangana</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="West Bengal">West Bengal</option>
+      <option value="Haryana">Haryana</option>
+      <option value="Rajasthan">Rajasthan</option>
+      <option value="Punjab">Punjab</option>
+      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+      <option value="Assam">Assam</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+      <option value="Gujarat">Gujarat</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write your queries here" style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<div>
+<button class="open-button" onclick="openForm()">Online Chat Support</button>
+
+<div class="chat-popup" id="myForm">
+  <form action="chatbox.php" class="form-container" method="post" id="chat">
+    <h3>Our chat assistants are here to help you out</h3>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>    
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+  
+</div>  
+<script>
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}     
+</script>
+</div>
+
+</body>
+</html>

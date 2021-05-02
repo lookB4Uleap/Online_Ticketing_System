@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Payment Gateway</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <h3>Pay via GPay</h3>
+    <hr> <br>
+    <img src="./images/gpay.png" alt="">
+    <br>
+    <form name="form1" action="result.html" onsubmit="required1()">
+    <label for="upi_id">UPI ID</label>
+    <input type="email" name="upi_id">
+    <br>
+    <label for="upi_pin">UPI PIN</label>
+    <input type="password" name="upi_pin">
+    <br>
+    <br>
+    <input type="submit" value="Make Payment" class="btn success" />
+    </form>
+    <br>
+    <br>
+    <h3>Pay via Paytm/PhonePe</h3>
+    <hr><br>
+    <pre>
+    <img src="./images/paytm.png" alt=""> <img src="./images/phonepe.jpg" alt="">
+</pre>
+<br>
+<form name="form2" action="result.html" onsubmit="required2()">
+<label for="">Wallet ID</label>
+<input type="email" name="id"> <br>
+<label for="">PIN</label>
+<input type="password" name="pin"> <br> <br>
+<button class="btn success" type="submit">Make Payment</button>
+</form>
+<script>
+    function required1(){
+        var emp=document.form["form1"]["upi_id"];
+        var emp2=document.form["form1"]["upi_pin"];
+        if (emp == "" || emp2==""){
+            alert("Please fill up the required  input boxes");
+            return false;
+        }
+        return true;
+    }
+    function required2(){
+        var emp=document.form["form2"]["id"];
+        var emp2=document.form["form2"]["pin"];
+        if (emp == "" || emp2 == ""){
+            alert("Please fill up the required  input boxes");
+            return false;   
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>
